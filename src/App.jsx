@@ -147,26 +147,16 @@ const App = () => {
 
   return (
     <>
-    <h1>Hello world!</h1>
+    <h1>Zombie Fighters</h1>
     <h3>Money {money}</h3>
-
-    <ul>
-      {zombieFighters.map((fighter) => (
-        <li key={fighter.id}>
-          <img src={fighter.img} alt={fighter.name} />
-          <h3>{fighter.name}</h3>
-          <p>Price: {fighter.price}</p>
-          <p>Strenght: {fighter.strength}</p>
-          <p>Agility: {fighter.agility}</p>
-          <button onClick={() => handleAddFighter(fighter)}>Add</button>
-        </li>
-      ))}
-    </ul>
-    <div>
-    <h1>Your Team:</h1>
     <h3>Strength {teamTotalStrenght}</h3>
     <h3>Agility {teamTotalAgility}</h3>
+
+    <div>
+    <h1>Your Team:</h1>
+    {team.length <= 0 ? <p>Pick some team members!</p> : null}
     </div>
+
     <ul>
       {team.map((fighter) => (
         <li key={fighter.id}>
@@ -179,6 +169,25 @@ const App = () => {
         </li>
       ))}
     </ul>
+
+
+    <div>
+    <h1>Fighters:</h1>
+    </div>
+    <ul>
+      {zombieFighters.map((fighter) => (
+        <li key={fighter.id}>
+          <img src={fighter.img} alt={fighter.name} />
+          <h3>{fighter.name}</h3>
+          <p>Price: {fighter.price}</p>
+          <p>Strenght: {fighter.strength}</p>
+          <p>Agility: {fighter.agility}</p>
+          <button onClick={() => handleAddFighter(fighter)}>Add</button>
+        </li>
+      ))}
+    </ul>
+
+    
     </>
   );
 }
